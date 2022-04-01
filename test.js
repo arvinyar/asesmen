@@ -204,6 +204,25 @@ describe('Login', () => {
                                                     });
                                                 });
 
+                                                describe('Find items', () => {
+                                                    it('Find items based on param send', (done) => {
+                                                        server
+                                                            .post('/api/find')
+                                                            .send({product_name:"sabu"})
+                                                            .expect("Content-type", /json/)
+                                                            .set('api_key', '76f8a1fab09bc13f2e48be45689dd074')
+                                                            .set('Authorization', 'Bearer ' + token)
+                                                            .expect(200)
+                                                            .end((err, res) => {
+                                                                res.should.have.status(200);
+                                                                res.body.should.be.a('object');
+                                                                res.body.data.should.be.a('array');
+                                                                console.log(res.body)
+                                                                done();
+                                                            });
+                                                    });
+                                                });
+
                                             });
                                     });
                                 });
