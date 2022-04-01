@@ -1,21 +1,21 @@
 {
     "test": {
       "database": "assesment_arvin",
-      "host": "127.0.0.1",
+      "host": "localhost",
       "username": "root",
       "password": "",
       "dialect" : "mysql"
     },
     "development": {
       "database": "assesment_arvin",
-      "host": "127.0.0.1",
+      "host": "localhost",
       "username": "root",
       "password": "",
       "dialect" : "mysql"
     },
     "production": {
       "database": "assesment_arvin",
-      "host": "127.0.0.1",
+      "host": "localhost",
       "username": "root",
       "password": "",
       "dialect" : "mysql"

@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD= ""
+      - MYSQL_DATABASE= "assesment_arvin"
+    ports:
+      - $MYSQLDB_LOCAL_PORT:3306
+    volumes:
+      - db:/var/lib/mysql
+  app:
+    depends_on:
+      - mysqldb
+    build: app
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:3306
+    environment:
+      - DB_HOST="localhost"
+      - DB_USER="root"
+      - DB_PASSWORD=""
+      - DB_NAME="assesment_arvin"
+      - DB_PORT=3306
+    stdin_open: true
+    tty: true
+volumes: 
+  db:
