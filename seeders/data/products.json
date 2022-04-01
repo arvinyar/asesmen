@@ -1,0 +1,18 @@
+[{
+    "name" : "Sabun Lifegirl",
+    "quantity" : 1000,
+    "promo" : 3,
+    "price" : 2500
+},
+{
+    "name" : "Roti Tawar",
+    "quantity" : 1000,
+    "promo" : 0,
+    "price" : 12000
+},
+{
+    "name" : "Sabun Cuci Moonlight",
+    "quantity" : 1000,
+    "promo" : 5,
+    "price" : 8000
+}]
