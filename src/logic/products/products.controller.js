@@ -26,9 +26,9 @@ class ProductsController {
 
         if(price_max == 0 && price_min == 0){
             query_price = {[Op.eq]: 0}
-        }else if(price_max == 0 && price_min > 0){
+        }else if((price_max == -1 || price_max == 0) && price_min > 0){
             query_price = {[Op.gte]: price_min}
-        }else if(price_max > 0 && price_min == 0){
+        }else if(price_max > 0 && price_min == -1 || price_min == 0){
             query_price = {[Op.between]: [price_min,price_max]}
         }else if(price_max < price_min && price_max >= 0 && price_min >= 0){
             query_price = {[Op.between]: [price_max,price_min]}
@@ -40,9 +40,9 @@ class ProductsController {
 
         if(promo_max == 0 && promo_min == 0){
             query_promo = {[Op.eq]: 0}
-        }else if(promo_max == 0 && promo_min > 0){
+        }else if((promo_max == 0 || promo_max == -1) && promo_min > 0){
             query_promo = {[Op.gte]: promo_min}
-        }else if(promo_max > 0 && promo_min == 0){
+        }else if(promo_max > 0 && (promo_min == 0 || promo_min == -1)){
             query_promo = {[Op.between]: [promo_min,promo_max]}
         }else if(promo_max < promo_min && promo_max >= 0 && promo_min >= 0){
             query_promo = {[Op.between]: [promo_max,promo_min]}
@@ -54,9 +54,9 @@ class ProductsController {
 
         if(quantity_max == 0 && quantity_min == 0){
             query_quantity = {[Op.eq]: 0}
-        }else if(quantity_max == 0 && quantity_min > 0){
+        }else if((quantity_max == 0 || quantity_max == -1) && quantity_min > 0){
             query_quantity = {[Op.gte]: quantity_min}
-        }else if(quantity_max > 0 && quantity_min == 0){
+        }else if(quantity_max > 0 && (quantity_min == 0 || quantity_min == -1)){
             query_quantity = {[Op.between]: [quantity_min,quantity_max]}
         }else if(quantity_max < quantity_min && quantity_max >= 0 && quantity_min >= 0){
             query_quantity = {[Op.between]: [quantity_max,quantity_min]}
